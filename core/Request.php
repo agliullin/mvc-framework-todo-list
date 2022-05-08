@@ -44,6 +44,7 @@ class Request
     public function __construct()
     {
         list($path) = explode("?", $_SERVER['REQUEST_URI']);
+        $path = str_replace(getenv('APP_FOLDER'), '', $path);
         $this->path = $path;
         $this->method = $_SERVER['REQUEST_METHOD'];
         $this->data = $this->getRequestData()[$this->method];

@@ -23,19 +23,19 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav side-menu me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="/">Главная</a>
+                                <a class="nav-link" href="{{ app.url }}">Главная</a>
                             </li>
                         </ul>
                         {% if not app.user %}
                             <ul class="navbar-nav side-menu ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/login">Авторизация</a>
+                                    <a class="nav-link" href="{{ app.url }}login">Авторизация</a>
                                 </li>
                             </ul>
                         {% else %}
                             <ul class="navbar-nav side-menu ms-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/logout">Выйти</a>
+                                    <a class="nav-link" href="{{ app.url }}logout">Выйти</a>
                                 </li>
                             </ul>
                         {% endif %}

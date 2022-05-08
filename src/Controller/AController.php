@@ -67,8 +67,14 @@ abstract class AController
     {
         return [
             'user' => $this->getUser(),
-            'flash' => $this->getFlash()
+            'flash' => $this->getFlash(),
+            'url' => $this->getAppUrl()
         ];
+    }
+
+    public function getAppUrl()
+    {
+        return getenv('APP_FOLDER') ? '/' . getenv('APP_FOLDER') : '/';
     }
 
     /**
@@ -103,7 +109,7 @@ abstract class AController
      */
     public function redirect($url): bool
     {
-        header('Location: ' . $url);
+        header('Location: ' . $this->getAppUrl() . ltrim($url, '/'));
         return true;
     }
 

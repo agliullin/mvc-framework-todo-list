@@ -14,7 +14,7 @@
                             Задачи
                         </h5>
                         <div class="card-toolbar d-flex align-items-center">
-                            <a class="btn btn-primary" href="/create">Добавить задачу</a>
+                            <a class="btn btn-primary" href="{{ app.url }}create">Добавить задачу</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -70,7 +70,7 @@
                                     <td>{% if task.isDescriptionModified %}<i class="fa fa-edit text-primary"></i>{% endif %} {{ task.description }}</td>
                                     {% if app.user %}
                                         <td class="text-end">
-                                            <a href="/edit?id={{ task.id }}">Изменить</a>
+                                            <a href="{{ app.url }}edit?id={{ task.id }}">Изменить</a>
                                         </td>
                                     {% endif %}
                                 </tr>

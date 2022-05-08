@@ -1,6 +1,5 @@
 Options -Indexes
 RewriteEngine On
-RewriteBase /
 
 RewriteCond %{THE_REQUEST} /public/([^\s?]*) [NC]
 RewriteRule ^ %1 [L,NE,R=302]
