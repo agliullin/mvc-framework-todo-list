@@ -60,14 +60,14 @@
                                 <tr>
                                     <td class="position-relative">
                                         {% if task.status %}
-                                            <i class="fa fa-check text-success"></i>
+                                            <i class="fa fa-check text-success" title="Выполнено"></i>
                                         {% else %}
-                                            <i class="fa fa-times text-danger"></i>
+                                            <i class="fa fa-times text-danger" title="Не выполнено"></i>
                                         {% endif %}
                                     </td>
                                     <td>{{ task.name }}</td>
                                     <td>{{ task.email }}</td>
-                                    <td>{% if task.isDescriptionModified %}<i class="fa fa-edit text-primary"></i>{% endif %} {{ task.description }}</td>
+                                    <td>{% if task.isDescriptionModified %}<i class="fa fa-edit text-primary" title="Отредактировано администратором"></i>{% endif %} {{ task.description }}</td>
                                     {% if app.user %}
                                         <td class="text-end">
                                             <a href="{{ app.url }}edit?id={{ task.id }}">Изменить</a>
