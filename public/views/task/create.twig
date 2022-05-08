@@ -1,0 +1,63 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+    Создание задачи
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h5 class="card-title">
+                            Создание задачи
+                        </h5>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputName">Имя</label>
+                                    <input type="text" name="name" value="{{ task.name }}" id="inputName" class="form-control {% if errors.name %}is-invalid{% endif %}">
+                                    {% if errors.name %}
+                                        <div class="invalid-feedback">
+                                            {{ errors.name }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputEmail">Email</label>
+                                    <input type="text" name="email" value="{{ task.email }}" id="inputEmail" class="form-control {% if errors.email %}is-invalid{% endif %}">
+                                    {% if errors.email %}
+                                        <div class="invalid-feedback">
+                                            {{ errors.email }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputDescription">Описание</label>
+                                    <textarea name="description" id="inputDescription" class="form-control {% if errors.description %}is-invalid{% endif %}">{{ task.description }}</textarea>
+                                    {% if errors.description %}
+                                        <div class="invalid-feedback">
+                                            {{ errors.description }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" type="submit">
+                                Создать
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

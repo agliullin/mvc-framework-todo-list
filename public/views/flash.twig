@@ -1,0 +1,12 @@
+{% if app.flash %}
+	<div class="container">
+		<div class="row">
+			<div class="col">
+                <div class="alert alert-{{ app.flash.type }} alert-dismissible text-center">
+                    {{ app.flash.message }}
+                    <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
+                </div>
+			</div>
+        </div>
+    </div>
+{% endif %}

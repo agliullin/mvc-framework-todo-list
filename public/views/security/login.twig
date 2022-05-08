@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block title %}
+    Авторизация
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-header">
+                        <h2 class="card-title">
+                            Авторизация
+                        </h2>
+                    </div>
+                    <form method="post">
+                        <div class="card-body">
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputUsername">Логин</label>
+                                    <input type="text" name="username" value="{{ user.username }}" id="inputUsername" class="form-control {% if errors.username %}is-invalid{% endif %}">
+                                    {% if errors.username %}
+                                        <div class="invalid-feedback">
+                                            {{ errors.username }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form_group">
+                                <div class="col-md-12 mb-3">
+                                    <label for="inputPassword">Пароль</label>
+                                    <input type="password" name="password" id="inputPassword" class="form-control {% if errors.password %}is-invalid{% endif %}">
+                                    {% if errors.password %}
+                                        <div class="invalid-feedback">
+                                            {{ errors.password }}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-primary" type="submit">
+                                Авторизоваться
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

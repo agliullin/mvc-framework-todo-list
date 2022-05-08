@@ -48,11 +48,86 @@ abstract class AController
      *
      * @param string $view
      * @param array $parameters
-     * @return void
+     * @return bool
+     * @throws Exception
      */
-    protected function render(string $view, array $parameters = [])
+    protected function render(string $view, array $parameters = []): bool
     {
-        echo $this->renderView($view, $parameters);
+        echo $this->renderView($view, array_merge($parameters, ['app' => $this->getAppVariables()]));
+        return true;
     }
 
+    /**
+     * Get app variables
+     *
+     * @return array
+     * @throws Exception
+     */
+    protected function getAppVariables(): array
+    {
+        return [
+            'user' => $this->getUser(),
+            'flash' => $this->getFlash()
+        ];
+    }
+
+    /**
+     * Get User
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function getUser()
+    {
+        $session = Application::getInstance()->make('session');
+        return $session->get('user') ?? false;
+    }
+
+    /**
+     * Get flash message
+     *
+     * @return mixed
+     * @throws Exception
+     */
+    public function getFlash()
+    {
+        $session = Application::getInstance()->make('session');
+        $flash = $session->get('flash') ?? false;
+        $session->unset('flash');
+
+        return $flash;
+    }
+
+    /**
+     * Using the dispatcher
+     */
+    public function redirect($url): bool
+    {
+        header('Location: ' . $url);
+        return true;
+    }
+
+    /**
+     * Check access
+     *
+     * @return bool
+     */
+    protected function checkAccess(): bool
+    {
+        return true;
+    }
+
+    /**
+     * Adds a flash message to the current session for type.
+     *
+     * @throws Exception
+     */
+    protected function addFlash(string $type, $message): void
+    {
+        $session = Application::getInstance()->make('session');
+        $session->set('flash', [
+            'type' => $type,
+            'message' => $message
+        ]);
+    }
 }
