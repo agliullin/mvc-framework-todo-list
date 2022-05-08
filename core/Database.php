@@ -39,7 +39,7 @@ class Database
         $proxyDir = null;
         $cache = null;
         $useSimpleAnnotationReader = false;
-        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."\\..\\src\\Entity\\"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
+        $config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/../src/Entity/"), $isDevMode, $proxyDir, $cache, $useSimpleAnnotationReader);
 
         $conn = array(
             'driver' => getenv('DB_DRIVER'),

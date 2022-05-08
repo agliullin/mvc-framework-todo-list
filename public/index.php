@@ -13,7 +13,7 @@ require '../vendor/autoload.php';
 /**
  * Load env file
  */
-$dotenv = \Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '\\..\\');
+$dotenv = \Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '/../');
 $dotenv->load();
 
 

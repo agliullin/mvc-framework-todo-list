@@ -52,6 +52,7 @@ class TaskController extends AController
             $task = new Task();
             $task->fill($taskForm->getFormFields());
             $task->setStatus(0);
+            $task->setIsDescriptionModified(0);
 
             // Initialize entityManager and repository
             $entityManager = Application::getInstance()->make('database');
