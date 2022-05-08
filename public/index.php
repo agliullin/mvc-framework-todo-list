@@ -8,12 +8,19 @@ session_start();
 /**
  * PSR-4 Autoload
  */
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
+
+/**
+ * Load env file
+ */
+$dotenv = \Dotenv\Dotenv::createUnsafeImmutable(__DIR__ . '\\..\\');
+$dotenv->load();
+
 
 /**
  * Require configs
  */
-require 'config/routes.php';
+require '../config/routes.php';
 
 try {
     $dispatcher = new Core\Dispatcher();

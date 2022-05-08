@@ -9,7 +9,18 @@ use Exception;
  */
 final class Registry
 {
-    private static $instance;
+    /**
+     * Instance
+     *
+     * @var ?Registry
+     */
+    private static ?Registry $instance = null;
+
+    /**
+     * Data
+     *
+     * @var array
+     */
     private array $data = [];
 
     /**

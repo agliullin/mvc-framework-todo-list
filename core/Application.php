@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use Doctrine\ORM\ORMException;
+
 /**
  * Application
  */
@@ -23,13 +25,16 @@ class Application {
      * Initialize main components in application
      *
      * @return void
+     * @throws ORMException
      */
     private static function init()
     {
         $registry = Registry::getInstance();
+        $registry->set('database', Database::getInstance());
         $registry->set('request', new Request());
         $registry->set('router', new Router());
-        $registry->set('twig', new \Twig\Environment(new \Twig\Loader\FilesystemLoader('public\views')));
+        $registry->set('twig', new \Twig\Environment(new \Twig\Loader\FilesystemLoader('views')));
+        $registry->set('session', new Session());
         static::$registry = $registry;
     }
 
@@ -37,6 +42,7 @@ class Application {
      * Get instance
      *
      * @return Registry
+     * @throws ORMException
      */
     public static function getInstance(): Registry
     {

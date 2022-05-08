@@ -54,11 +54,13 @@ class Dispatcher {
 
         $callable = $this->router->match($method, $url);
 
+        // Check if isset callable function
         if (isset($callable['callback'])) {
             $callback = $callable['callback'];
             return $callback($data);
         }
 
+        // Check if isset callable controller
         if (isset($callable['controller'])) {
             $controllerDefinition = $callable['controller'];
             list($controller, $method) = explode('@', $controllerDefinition);
