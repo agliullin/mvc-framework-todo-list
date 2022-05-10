@@ -14,7 +14,8 @@ class Session
      * @param $value
      * @return void
      */
-    public static function set($key, $value) {
+    public static function set($key, $value)
+    {
         $_SESSION[$key] = $value;
     }
 
@@ -24,7 +25,8 @@ class Session
      * @param $key
      * @return void
      */
-    public static function unset($key) {
+    public static function unset($key)
+    {
         unset($_SESSION[$key]);
     }
 
@@ -34,7 +36,8 @@ class Session
      * @param $key
      * @return false|mixed
      */
-    public static function get($key) {
+    public static function get($key)
+    {
         return (isset($_SESSION[$key])) ? $_SESSION[$key] : false;
     }
 
@@ -43,7 +46,8 @@ class Session
      *
      * @return void
      */
-    public static function destroy() {
+    public static function destroy()
+    {
         session_destroy();
     }
 }

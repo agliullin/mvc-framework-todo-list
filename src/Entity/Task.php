@@ -183,6 +183,7 @@ class Task
         $this->isDescriptionModified = $isDescriptionModified;
         return $this;
     }
+
     /**
      * Fill by data
      *

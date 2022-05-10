@@ -15,7 +15,14 @@ class TaskService implements TaskServiceInterface
      */
     use PagerTrait;
 
+    /**
+     * Allowed sorts
+     */
     const SORT_ALLOWED = ['status', 'name', 'email'];
+
+    /**
+     * Allowed orders
+     */
     const ORDER_ALLOWED = ['ASC', 'DESC'];
 
     /**

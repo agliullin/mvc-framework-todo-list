@@ -72,6 +72,11 @@ abstract class AController
         ];
     }
 
+    /**
+     * Get app url
+     *
+     * @return string
+     */
     public function getAppUrl()
     {
         return getenv('APP_FOLDER') ? '/' . getenv('APP_FOLDER') : '/';
